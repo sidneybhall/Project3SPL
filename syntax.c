@@ -48,12 +48,13 @@ int lex();
 
 int main(int argc, char* argv[])
 {
-	if(argc != 2 )
+	if(argc != 2) //If the file 
 	{
 		printf("The file is missing...\n");
 		exit(0);
 	}
-	else if(in_fp = fopen(argv[1]))
+	else if((in_fp = fopen(argv[1], "r")) == NULL)
+		printf("ERROR - cannot open front.in");
 	/* Open the input data file and process its contents */
 	else
 	{
