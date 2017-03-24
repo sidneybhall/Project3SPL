@@ -135,23 +135,24 @@ void addChar()
 
 void getChar()
 {
+	//as long as the line char is not new line or null character
 	if(x[line_num] != '\n' && x[line_num] != '\0')
 	{
 
-		nextChar = x[line_num++];
+		nextChar = x[line_num++];// update nextchar
 	
 	
-		if(isalpha(nextChar))
+		if(isalpha(nextChar))//if its a letter
 			charClass = LETTER;
-		else if(isdigit(nextChar))
+		else if(isdigit(nextChar))//if its a digit
 			charClass = DIGIT;
-		else if (nextChar == '\n')
+		else if (nextChar == '\n')//if its a newline
 			charClass = NEWLINECHAR;
-		else
+		else					// if its a none of these things
 			charClass = UNKNOWN;
 	}
 	else
-		charClass = EOF;
+		charClass = EOF; // otherwise its the EOF
 }
 
 
@@ -300,6 +301,9 @@ void factor()
 	printf("Exit <factor>\n");
 } // End of function factor
 
+/*
+error -	Prints an error code when problems arise.
+*/
 
 void error() // error function that responds to problematic expressions.
 {
