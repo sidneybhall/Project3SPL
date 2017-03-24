@@ -1,5 +1,4 @@
 
-
 /* front.c - a lexical analyster system for ismple arithemtic expressions*/
 
 #include <stdio.h>
