@@ -43,8 +43,15 @@ int lex();
 /*************************************************************************************/
 /*main driver*/
 
-int main()
+int main(int argc, char* argv[])
 {
+	if(argc != 2 )
+	{
+		printf("The file is missing...\n");
+		exit(0);
+	}
+
+	else
 	/* Open the input data file and process its contents */
 	if((in_fp = fopen("front.in", "r")) == NULL)
 		printf("ERROR - cannot open front.in \n");
