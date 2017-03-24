@@ -17,6 +17,9 @@ int nextToken;
 FILE *in_fp, *fopen();
 char * x = NULL;
 
+ssize_t holder;
+size_t x_len = 0;
+
 //Function Declarations
 void addChar();
 void getChar();
@@ -50,17 +53,23 @@ int main(int argc, char* argv[])
 		printf("The file is missing...\n");
 		exit(0);
 	}
-
-	else
+	else if(in_fp = fopen(argv[1]))
 	/* Open the input data file and process its contents */
-	if((in_fp = fopen("front.in", "r")) == NULL)
-		printf("ERROR - cannot open front.in \n");
 	else
 	{
-		getChar();
-		do{
-			lex();
-		}	while	(nextToken != EOF);
+		while((holder = getline(&x, &x_len, in_fp)) != EOF)
+		{
+			lin_num = 0;
+			getChar();
+			if (x != NULL)
+			{
+				do{
+					lex();
+					expr();
+				}
+				while(nextToken != EOF)
+			}
+		}
 	}
 
 }
