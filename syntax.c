@@ -8,11 +8,14 @@
 //Variables:
 int charClass;
 char lexeme[100];
+int line_num;
 char nextChar;
+char end;
 int lexLen;
 int token;
 int nextToken;
 FILE *in_fp, *fopen();
+char * x = NULL;
 
 //Function Declarations
 void addChar();
@@ -112,12 +115,18 @@ void addChar()
 
 void getChar()
 {
-	if((nextChar = getc(in_fp)) != EOF)
+	if(x[line_num] != '\n' && x[line_num] != '\0')
 	{
+
+		nextChar = x[line_num++];
+	
+	
 		if(isalpha(nextChar))
 			charClass = LETTER;
 		else if(isdigit(nextChar))
 			charClass = DIGIT;
+		else if (nextChar == '\n')
+			charClass = NEWLINECHAR;
 		else
 			charClass = UNKNOWN;
 	}
