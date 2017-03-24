@@ -155,6 +155,9 @@ int lex()
 
 	lexLen = 0;
 	getNonBlank();
+	end = nextChar;
+
+
 	switch(charClass){
 
 		/*Parse Identifiers*/
@@ -197,9 +200,10 @@ int lex()
 			break;
 		}//end of switch
 		
-	printf("Next token is: %d, Next Lexeme is: %s\n", );
+	printf("Next token is: %d, Next Lexeme is: %s\n", nextToken, lexeme);
 	return nextToken;
 }/* End of function lex*/
+
 
 /*	expr
 	Parses string int he language geenrtaed by the rule:
